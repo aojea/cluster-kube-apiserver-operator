@@ -38,11 +38,15 @@ status:
       name: openshift-kube-apiserver
       resource: namespaces
     - group: admissionregistration.k8s.io
+      name: ""
       resource: mutatingwebhookconfigurations
     - group: admissionregistration.k8s.io
+      name: ""
       resource: validatingwebhookconfigurations
     - group: controlplane.operator.openshift.io
+      name: ""
       resource: podnetworkconnectivitychecks
       namespace: openshift-kube-apiserver
     - group: apiserver.openshift.io
+      name: ""
       resource: apirequestcounts

@@ -30,7 +30,7 @@ apiServerArguments:
   audit-policy-file:
     - /etc/kubernetes/static-pod-resources/configmaps/kube-apiserver-audit-policies/policy.yaml
   client-ca-file:
-    - /etc/kubernetes/static-pod-certs/configmaps/client-ca/ca-bundle.crt
+    - /etc/kubernetes/pki/ca.crt
   enable-admission-plugins:
     - CertificateApproval
     - CertificateSigning
@@ -86,11 +86,11 @@ apiServerArguments:
   endpoint-reconciler-type:
     - "lease"
   etcd-cafile:
-    - /etc/kubernetes/static-pod-resources/configmaps/etcd-serving-ca/ca-bundle.crt
+    - /etc/kubernetes/pki/etcd/ca.crt
   etcd-certfile:
-    - /etc/kubernetes/static-pod-resources/secrets/etcd-client/tls.crt
+    - /etc/kubernetes/pki/apiserver-etcd-client.crt
   etcd-keyfile:
-    - /etc/kubernetes/static-pod-resources/secrets/etcd-client/tls.key
+    - /etc/kubernetes/pki/apiserver-etcd-client.key
   etcd-prefix:
     - kubernetes.io
   event-ttl:
@@ -102,11 +102,11 @@ apiServerArguments:
   insecure-port:
     - "0"
   kubelet-certificate-authority:
-    - /etc/kubernetes/static-pod-resources/configmaps/kubelet-serving-ca/ca-bundle.crt
+    - /etc/kubernetes/pki/ca.crt
   kubelet-client-certificate:
-    - /etc/kubernetes/static-pod-certs/secrets/kubelet-client/tls.crt
+    - /etc/kubernetes/pki/apiserver-kubelet-client.crt
   kubelet-client-key:
-    - /etc/kubernetes/static-pod-certs/secrets/kubelet-client/tls.key
+    - /etc/kubernetes/pki/apiserver-kubelet-client.key
   kubelet-preferred-address-types:
     - InternalIP # all of our kubelets have internal IPs and we *only* support communicating with them via that internal IP so that NO_PROXY always works and is lightweight
   kubelet-read-only-port:
@@ -122,9 +122,9 @@ apiServerArguments:
   min-request-timeout:
     - "3600"
   proxy-client-cert-file:
-    - /etc/kubernetes/static-pod-certs/secrets/aggregator-client/tls.crt
+    - /etc/kubernetes/pki/apiserver.crt
   proxy-client-key-file:
-    - /etc/kubernetes/static-pod-certs/secrets/aggregator-client/tls.key
+    - /etc/kubernetes/pki/apiserver.key
   requestheader-allowed-names:
     - kube-apiserver-proxy
     - system:kube-apiserver-proxy
@@ -149,9 +149,9 @@ apiServerArguments:
   storage-media-type:
     - application/vnd.kubernetes.protobuf
   tls-cert-file:
-    - /etc/kubernetes/static-pod-certs/secrets/service-network-serving-certkey/tls.crt
+    - /etc/kubernetes/pki/apiserver.crt
   tls-private-key-file:
-    - /etc/kubernetes/static-pod-certs/secrets/service-network-serving-certkey/tls.key
+    - /etc/kubernetes/pki/apiserver.key
 authConfig:
   oauthMetadataFile: ""
 consolePublicURL: ""
