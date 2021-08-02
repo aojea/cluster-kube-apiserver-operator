@@ -1,0 +1,17 @@
+apiVersion: config.openshift.io/v1
+kind: Infrastructure
+metadata:
+  name: cluster
+spec:
+status:
+  apiServerInternalURI: https://kind-control-plane:6443
+  apiServerURL: https://kind-control-plane:6443
+---
+apiVersion: operator.openshift.io/v1
+kind: Infrastructure
+metadata:
+  name: cluster
+spec:
+status:
+  apiServerInternalURI: https://kind-control-plane:6443
+  apiServerURL: https://kind-control-plane:6443
